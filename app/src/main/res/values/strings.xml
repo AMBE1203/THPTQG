@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">OnThiThptQG</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="thoat">Thoát</string>
+    <string name="exit_alert">Exit Alert</string>
+    <string name="are_you_sure_you_want_to_exit">Are you sure you want to exit?</string>
+
+
+
+    <array name="menuOptions">
+        <item>Ôn thi THPT QG</item>
+        <item>Đánh giá ứng dụng</item>
+        <item>Chia sẻ với bạn bè</item>
+        <item>Nguyên tắc cộng đồng</item>
+        <item>Hẹn giờ học bài</item>
+    </array>
+</resources>
