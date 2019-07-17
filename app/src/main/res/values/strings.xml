@@ -6,7 +6,8 @@
     <string name="thoat">Thoát</string>
     <string name="exit_alert">Exit Alert</string>
     <string name="are_you_sure_you_want_to_exit">Are you sure you want to exit?</string>
-
+    <string name="chia_se_ung_dung">Chia sẻ ứng dụng Ôn Thi THPT Quốc Gia</string>
+    <string name="chon_mot_ung_dung">Chọn một ứng dụng để chia sẻ</string>
 
 
     <array name="menuOptions">

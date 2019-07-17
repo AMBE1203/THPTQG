@@ -11,6 +11,11 @@ import nl.psdcompany.duonavigationdrawer.widgets.DuoDrawerToggle
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.system.exitProcess
+import android.content.Intent
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener {
     override fun onOptionClicked(position: Int, objectClicked: Any?) {
@@ -23,8 +28,8 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener {
         // Navigate to the right fragment
         when (position) {
             0 -> mViewHolder?.mDuoDrawerLayout?.closeDrawer()
-            1 -> shareApp()
-            2 -> rateApp()
+            1 -> rateApp()
+            2 -> shareApp()
             3 -> communityPrinciples()
             4 -> alarm()
 
@@ -37,6 +42,8 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener {
     }
 
     private fun communityPrinciples() {
+        navController?.navigate(R.id.action_mainFragment_to_communityFragment)
+        mViewHolder?.mDuoDrawerLayout?.closeDrawer()
     }
 
     private fun rateApp() {
@@ -44,6 +51,12 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener {
     }
 
     private fun shareApp() {
+
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "text/plain"
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.chia_se_ung_dung))
+        intent.putExtra(Intent.EXTRA_TEXT, "This is my text") // todo link tai app
+        startActivity(Intent.createChooser(intent, getString(R.string.chon_mot_ung_dung)))
     }
 
     override fun onHeaderClicked() {
@@ -51,6 +64,10 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener {
     }
 
     override fun onFooterClicked() {
+        exits()
+    }
+
+    private fun exits() {
         val exitAlertDialog = ExitAlertDialog(this@MainActivity)
         exitAlertDialog.setListener(object : ExitAlertDialog.IOnExitAlertDialogListener {
             override fun onCancel() {
@@ -69,6 +86,8 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener {
     private var mMenuAdapter: MenuAdapter? = null
     private var mViewHolder: ViewHolder? = null
     private var mTitles = ArrayList<String>()
+    private var navController: NavController? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -92,8 +111,27 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener {
         mMenuAdapter?.setViewSelected(0, true)
         title = mTitles[0]
 
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+
 
     }
+
+    override fun onBackPressed() {
+        var id = navController?.currentDestination?.id
+        //  var fragment = nav_host_fragment.childFragmentManager.primaryNavigationFragment
+        when (id) {
+            R.id.mainFragment -> {
+                exits()
+            }
+
+            else -> super.onBackPressed()
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController!!.navigateUp()
+    }
+
 
     private fun handleDrawer() {
         val duoDrawerToggle = DuoDrawerToggle(
