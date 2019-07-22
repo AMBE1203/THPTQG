@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener {
 
         // Navigate to the right fragment
         when (position) {
-            0 -> mViewHolder?.mDuoDrawerLayout?.closeDrawer()
+            0 -> goToMainFragment()
             1 -> rateApp()
             2 -> shareApp()
             3 -> communityPrinciples()
@@ -35,6 +35,13 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener {
 
         }
 
+    }
+
+    private fun goToMainFragment() {
+
+
+        navController?.navigateUp()
+        mViewHolder?.mDuoDrawerLayout?.closeDrawer()
     }
 
     private fun alarm() {
@@ -123,8 +130,14 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener {
             R.id.mainFragment -> {
                 exits()
             }
+            R.id.communityFragment -> {
+                title = mTitles[0]
+                mMenuAdapter?.setViewSelected(0, true)
+                super.onBackPressed()
+            }
 
             else -> super.onBackPressed()
+
         }
     }
 

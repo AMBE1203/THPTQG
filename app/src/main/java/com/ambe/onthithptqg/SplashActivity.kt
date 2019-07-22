@@ -10,7 +10,7 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        SystemClock.sleep(1500)
+        SystemClock.sleep(1000)
         // Start home activity
         startActivity(Intent(this@SplashActivity, MainActivity::class.java))
         // close splash activity

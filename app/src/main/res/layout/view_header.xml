@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/duo_view_header_text_title"
         android:layout_marginLeft="32dp"
+        android:autoLink="email"
         android:text="duongthecuongbk227@gmail.com"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@android:color/white"
