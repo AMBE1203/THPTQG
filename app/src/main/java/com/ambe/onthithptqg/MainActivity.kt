@@ -8,16 +8,35 @@ import com.ambe.onthithptqg.ui.dialog.ExitAlertDialog
 import nl.psdcompany.duonavigationdrawer.views.DuoDrawerLayout
 import nl.psdcompany.duonavigationdrawer.views.DuoMenuView
 import nl.psdcompany.duonavigationdrawer.widgets.DuoDrawerToggle
-import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.system.exitProcess
 import android.content.Intent
+import android.support.v4.widget.DrawerLayout
+import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.ambe.onthithptqg.interfaces.IStateToolbarMain
+import com.ambe.onthithptqg.ui.main.MainFragment
+import com.ambe.onthithptqg.ui.subjects.SubjectsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener {
+class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener, IStateToolbarMain {
+    override fun showToolbar() {
+        if (toolbar.visibility == View.GONE) {
+            toolbar.visibility = View.VISIBLE
+            drawer.setDrawerLockMode(DuoDrawerLayout.LOCK_MODE_UNLOCKED)
+        }
+
+    }
+
+    override fun hideToolbar() {
+        if (toolbar.visibility == View.VISIBLE) {
+            drawer.setDrawerLockMode(DuoDrawerLayout.LOCK_MODE_LOCKED_CLOSED)
+            toolbar.visibility = View.GONE
+        }
+    }
+
     override fun onOptionClicked(position: Int, objectClicked: Any?) {
         // Set the toolbar title
         title = mTitles[position]
@@ -121,6 +140,7 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener {
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
 
 
+        //  drawer.setDrawerLockMode(DuoDrawerLayout.LOCK_MODE_LOCKED_CLOSED)
     }
 
     override fun onBackPressed() {
@@ -133,7 +153,13 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener {
             R.id.communityFragment -> {
                 title = mTitles[0]
                 mMenuAdapter?.setViewSelected(0, true)
-                super.onBackPressed()
+                navController?.navigateUp()
+            }
+
+            R.id.subjectsFragment -> {
+                showToolbar()
+                navController?.navigateUp()
+
             }
 
             else -> super.onBackPressed()
@@ -147,6 +173,7 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener {
 
 
     private fun handleDrawer() {
+
         val duoDrawerToggle = DuoDrawerToggle(
             this,
             mViewHolder?.mDuoDrawerLayout,
@@ -154,6 +181,8 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener {
             R.string.navigation_drawer_open,
             R.string.navigation_drawer_close
         )
+
+
 
         mViewHolder?.mDuoDrawerLayout?.setDrawerListener(duoDrawerToggle)
         duoDrawerToggle.syncState()

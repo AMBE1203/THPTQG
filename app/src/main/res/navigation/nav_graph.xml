@@ -9,14 +9,28 @@
         android:id="@+id/mainFragment"
         android:name="com.ambe.onthithptqg.ui.main.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_communityFragment"
             app:destination="@id/communityFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_subjectsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:destination="@id/subjectsFragment" />
     </fragment>
     <fragment
         android:id="@+id/communityFragment"
         android:name="com.ambe.onthithptqg.ui.communityrules.CommunityFragment"
         android:label="fragment_community"
         tools:layout="@layout/fragment_community" />
+    <fragment
+        android:id="@+id/subjectsFragment"
+        android:name="com.ambe.onthithptqg.ui.subjects.SubjectsFragment"
+        android:label="fragment_subjects"
+        tools:layout="@layout/fragment_subjects">
+        <argument android:name="subject" />
+    </fragment>
 </navigation>
