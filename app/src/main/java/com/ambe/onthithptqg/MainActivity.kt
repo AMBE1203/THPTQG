@@ -16,6 +16,7 @@ import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.ambe.onthithptqg.interfaces.IStateToolbarMain
+import com.ambe.onthithptqg.ui.dialog.AlertDialog
 import com.ambe.onthithptqg.ui.main.MainFragment
 import com.ambe.onthithptqg.ui.subjects.SubjectsFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -65,10 +66,26 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener, IStat
 
     private fun alarm() {
 
+        var alertDialog = AlertDialog(this@MainActivity)
+        alertDialog.setListener(object : AlertDialog.IOnAlertDialogListener {
+            override fun onCancel() {
+                alertDialog.dismiss()
+            }
+
+            override fun onAgree() {
+                alertDialog.dismiss()
+            }
+        })
+        alertDialog.show()
+
     }
 
     private fun communityPrinciples() {
-        navController?.navigate(R.id.action_mainFragment_to_communityFragment)
+
+        var fragment = nav_host_fragment.childFragmentManager.primaryNavigationFragment
+        if (fragment is MainFragment) {
+            navController?.navigate(R.id.action_mainFragment_to_communityFragment)
+        }
         mViewHolder?.mDuoDrawerLayout?.closeDrawer()
     }
 

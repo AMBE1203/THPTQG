@@ -32,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_8sdp"
                 android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
                 android:text="@string/khoa_h_c_t_nhi_n"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
@@ -54,13 +55,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/math" />
+                    android:src="@drawable/ic_math" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/to_n"
+                    android:textColor="@color/colorBlack"
                     android:textSize="@dimen/_12sdp" />
 
             </LinearLayout>
@@ -80,13 +82,15 @@
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
 
-                    android:src="@drawable/physics" />
+                    android:src="@drawable/ic_physics" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/vat_ly"
+                    android:textColor="@color/colorBlack"
+
                     android:textSize="@dimen/_12sdp" />
 
             </LinearLayout>
@@ -105,13 +109,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/chemistry" />
+                    android:src="@drawable/ic_chemistry" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/hoa_hoc"
+
+                    android:textColor="@color/colorBlack"
                     android:textSize="@dimen/_12sdp" />
 
             </LinearLayout>
@@ -133,13 +139,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/biology" />
+                    android:src="@drawable/ic_biology" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/sinh_hoc"
+                    android:textColor="@color/colorBlack"
+
                     android:textSize="@dimen/_12sdp" />
 
             </LinearLayout>
@@ -157,7 +165,6 @@
         android:layout_marginTop="@dimen/_4sdp"
         android:layout_marginRight="@dimen/_4sdp"
         app:cardCornerRadius="@dimen/_4sdp"
-
         app:cardElevation="@dimen/_4sdp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -174,6 +181,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_8sdp"
                 android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
                 android:text="@string/khoa_h_c_x_h_i"
                 android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
@@ -196,13 +204,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/van" />
+                    android:src="@drawable/ic_book" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/ngu_van"
+                    android:textColor="@color/colorBlack"
+
                     android:textSize="@dimen/_12sdp" />
 
             </LinearLayout>
@@ -221,13 +231,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/lich_su" />
+                    android:src="@drawable/ic_totem" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/lich_su"
+                    android:textColor="@color/colorBlack"
+
                     android:textSize="@dimen/_12sdp" />
 
             </LinearLayout>
@@ -246,13 +258,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/dia_ly" />
+                    android:src="@drawable/ic_earth_globe" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/dia_ly"
+                    android:textColor="@color/colorBlack"
+
                     android:textSize="@dimen/_12sdp" />
 
             </LinearLayout>
@@ -274,13 +288,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/tieng_anh" />
+                    android:src="@drawable/ic_english_language" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/tieng_anh"
+                    android:textColor="@color/colorBlack"
+
                     android:textSize="@dimen/_12sdp" />
 
             </LinearLayout>
@@ -302,13 +318,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/gdcd" />
+                    android:src="@drawable/ic_idea" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="@string/gdcd"
+                    android:textColor="@color/colorBlack"
+
                     android:textSize="@dimen/_12sdp" />
 
             </LinearLayout>

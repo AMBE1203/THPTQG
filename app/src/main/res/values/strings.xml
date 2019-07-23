@@ -22,6 +22,10 @@
     <string name="nguyen_tac">Ứng dụng này thiết kế với mục đích giúp các học sinh lớp 11, 12 có thể ôn thi THPT Quốc gia mọi nơi, mọi lúc kể cả khi không có mạng Internet.\n\nĐể phục vụ các bạn học tập tốt nhất, chúng tôi sẽ thường xuyên cố gắng cập nhật đề thi cũng như tài liệu mới nhất và nhanh nhất có thể. Trong quá trình biên soạn đề thi cũng như tài liệu sẽ có thể có những sai sót, vì vậy, trong quá trình sử dụng, nếu gặp những trường hợp sai sót, vui lòng phản hồi lại, để chúng tôi kịp thời chỉnh sửa.\n\nQuý thầy cô và các bạn học sinh muốn đóng góp đề thi cũng như tài liệu cho ứng dụng xin vui lòng gửi cho chúng tôi, chúng tôi sẽ cập nhật nhanh nhất tới toán bộ người dùng.\n\nCác tài liệu trên ứng dụng được sưu tầm từ mạng xã hội Facebook và một số nguồn từ cộng đồng mạng. Chúng tôi không chịu trách nhiệm về nội dung tài liệu. Nếu có vấn đề về bản quyền, vui lòng liên hệ với chúng tôi theo Email duongthecuongbk227@gmail.com để được gỡ bỏ.\n\nChúc các bạn học tập tốt và thành công trên con đường mình đã chọn.\n\n \t \t \t \t \tHọc, học nữa, học mãi.\n  \t \t \t \t \t \t Nhóm phát triển.</string>
     <string name="lich_su_hoc_tap">Lịch sử học tập</string>
     <string name="cau_danh_dau">Câu đánh dấu</string>
+    <string name="tien_do">Tiến độ:</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="thong_bao">Thông báo</string>
 
 
     <array name="menuOptions">
