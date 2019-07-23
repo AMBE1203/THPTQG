@@ -11,14 +11,12 @@ import nl.psdcompany.duonavigationdrawer.widgets.DuoDrawerToggle
 import kotlin.collections.ArrayList
 import kotlin.system.exitProcess
 import android.content.Intent
-import android.support.v4.widget.DrawerLayout
 import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.ambe.onthithptqg.interfaces.IStateToolbarMain
-import com.ambe.onthithptqg.ui.dialog.AlertDialog
+import com.ambe.onthithptqg.ui.dialog.AlarmDialog
 import com.ambe.onthithptqg.ui.main.MainFragment
-import com.ambe.onthithptqg.ui.subjects.SubjectsFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -66,8 +64,8 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener, IStat
 
     private fun alarm() {
 
-        var alertDialog = AlertDialog(this@MainActivity)
-        alertDialog.setListener(object : AlertDialog.IOnAlertDialogListener {
+        var alertDialog = AlarmDialog(this@MainActivity)
+        alertDialog.setListener(object : AlarmDialog.IOnAlertDialogListener {
             override fun onCancel() {
                 alertDialog.dismiss()
             }

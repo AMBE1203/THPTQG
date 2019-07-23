@@ -4,12 +4,12 @@ import android.content.Context
 import com.ambe.onthithptqg.R
 import com.ambe.onthithptqg.helper.Utils
 import com.ambe.onthithptqg.interfaces.IOnSimpleDialogListener
-import kotlinx.android.synthetic.main.dialog_alert.*
+import kotlinx.android.synthetic.main.dialog_alarm.*
 
 /**
  *  Created by AMBE on 23/7/2019 at 10:25 AM.
  */
-class AlertDialog(context: Context) : BaseDialog(context) {
+class AlarmDialog(context: Context) : BaseDialog(context) {
     override fun setAnimation() {
         Utils.animateDialog(vgr_dialog_alert)
     }
@@ -20,13 +20,13 @@ class AlertDialog(context: Context) : BaseDialog(context) {
     }
 
     override fun getLayout(): Int {
-        return R.layout.dialog_alert
+        return R.layout.dialog_alarm
     }
 
 
     private var listener: IOnAlertDialogListener? = null
 
-    fun setListener(listener: IOnAlertDialogListener): AlertDialog {
+    fun setListener(listener: IOnAlertDialogListener): AlarmDialog {
         this.listener = listener
         return this
     }

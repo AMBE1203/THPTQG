@@ -73,6 +73,7 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:orientation="horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
+                android:gravity="center"
                 app:layout_constraintBottom_toTopOf="@id/lnl_tien_do"
 
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -101,6 +102,7 @@
                 android:layout_height="match_parent"
                 android:background="?android:attr/selectableItemBackground"
                 android:orientation="horizontal"
+                android:gravity="center"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintBottom_toTopOf="@id/lnl_tien_do"
                 app:layout_constraintLeft_toRightOf="@id/lnl_lich_su_hoc_tap"
@@ -139,6 +141,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/tien_do"
+                    android:paddingLeft="@dimen/_12sdp"
                     android:textSize="@dimen/_12sdp" />
 
                 <ProgressBar

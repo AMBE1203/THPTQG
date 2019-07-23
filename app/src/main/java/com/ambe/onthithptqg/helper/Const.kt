@@ -14,4 +14,6 @@ object Const {
     const val DIA = "dia"
     const val ANH = "anh"
     const val GDCD = "gdcd"
+    const val ALARM_EXTRA = "ALARM"
+    const val TIME_ALARM = "time_alarm"
 }

@@ -41,7 +41,7 @@
                 android:visibility="visible">
 
                 <TimePicker
-                    android:id="@+id/time_picker_start"
+                    android:id="@+id/time_picker"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_centerInParent="true"
