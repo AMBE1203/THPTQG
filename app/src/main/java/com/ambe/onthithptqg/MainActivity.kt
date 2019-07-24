@@ -14,7 +14,10 @@ import android.content.Intent
 import android.view.View
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.ambe.onthithptqg.helper.Const
+import com.ambe.onthithptqg.helper.PrefUtils
 import com.ambe.onthithptqg.interfaces.IStateToolbarMain
+import com.ambe.onthithptqg.sevices.AlarmReceiver
 import com.ambe.onthithptqg.ui.dialog.AlarmDialog
 import com.ambe.onthithptqg.ui.main.MainFragment
 import kotlinx.android.synthetic.main.activity_main.*
@@ -64,13 +67,19 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener, IStat
 
     private fun alarm() {
 
+
         var alertDialog = AlarmDialog(this@MainActivity)
         alertDialog.setListener(object : AlarmDialog.IOnAlertDialogListener {
             override fun onCancel() {
                 alertDialog.dismiss()
             }
 
-            override fun onAgree() {
+            override fun onAgree(time: String) {
+
+                AlarmReceiver().setAlarm(applicationContext, time)
+                mTitles[4] = "Giờ học bài: $time"
+                mMenuAdapter?.notifyDataSetChanged()
+
                 alertDialog.dismiss()
             }
         })
@@ -115,7 +124,7 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener, IStat
                 exitAlertDialog.cancel()
             }
 
-            override fun onAgree() {
+            override fun onAgree(time: String) {
 
                 finish()
                 exitProcess(0)
@@ -128,6 +137,7 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener, IStat
     private var mViewHolder: ViewHolder? = null
     private var mTitles = ArrayList<String>()
     private var navController: NavController? = null
+    private var prefUtils: PrefUtils? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -204,6 +214,14 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener, IStat
     }
 
     private fun handleMenu() {
+
+        prefUtils = PrefUtils.getInstance(applicationContext)
+
+        var gioHocBai = prefUtils?.getString(Const.GIO_HOC_BAI, "")
+
+        if (gioHocBai != "") {
+            mTitles[4] = "Giờ học bài: $gioHocBai"
+        }
         mMenuAdapter = MenuAdapter(mTitles)
 
         mViewHolder?.mDuoMenuView?.setOnMenuClickListener(this)

@@ -20,7 +20,7 @@ class ExitAlertDialog(context: Context) : BaseDialog(context) {
     override fun initView() {
 
         txt_no.setOnClickListener { listener?.onCancel() }
-        txt_yes.setOnClickListener { listener?.onAgree() }
+        txt_yes.setOnClickListener { listener?.onAgree("aaaaaa") }
     }
 
     override fun getLayout(): Int {

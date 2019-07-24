@@ -6,5 +6,5 @@ package com.ambe.onthithptqg.interfaces
 interface IOnSimpleDialogListener {
     fun onCancel()
 
-    fun onAgree()
+    fun onAgree(time: String)
 }

@@ -16,4 +16,5 @@ object Const {
     const val GDCD = "gdcd"
     const val ALARM_EXTRA = "ALARM"
     const val TIME_ALARM = "time_alarm"
+    const val GIO_HOC_BAI = "gio_hoc_bai"
 }
