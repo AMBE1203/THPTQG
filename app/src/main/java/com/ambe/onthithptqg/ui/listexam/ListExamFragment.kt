@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.ambe.onthithptqg.R
+import com.ambe.onthithptqg.interfaces.IOnClickExam
 import com.ambe.onthithptqg.model.Exam
 import com.ambe.onthithptqg.ui.BaseFragment
 import kotlinx.android.synthetic.main.fragment_list_exam.*
@@ -67,6 +68,14 @@ class ListExamFragment : BaseFragment() {
         list.add(Exam("Đề thi minh họa lần 7", "Bộ GDDT", "90 phút", 90, 30))
 
         adapter.submitList(list)
+
+        adapter.setOnClickExam(object : IOnClickExam {
+            override fun onClickExam(exam: Exam) {
+
+                navController.navigate(R.id.action_listExamFragment_to_questionFragment)
+
+            }
+        })
     }
 
 

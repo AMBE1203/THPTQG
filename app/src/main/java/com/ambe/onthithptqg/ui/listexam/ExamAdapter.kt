@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import com.ambe.onthithptqg.R
+import com.ambe.onthithptqg.interfaces.IOnClickExam
 import com.ambe.onthithptqg.model.Exam
 import com.ambe.onthithptqg.model.ExamDiffCallback
 import kotlinx.android.synthetic.main.item_exam.view.*
@@ -39,6 +40,12 @@ class ExamAdapter : ListAdapter<Exam, ExamAdapter.ViewHolder>(ExamDiffCallback()
         }
     }
 
+    private var iOnClickExam: IOnClickExam? = null
+
+    fun setOnClickExam(iOnClickExam: IOnClickExam) {
+        this.iOnClickExam = iOnClickExam
+    }
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(exam: Exam) {
@@ -50,6 +57,8 @@ class ExamAdapter : ListAdapter<Exam, ExamAdapter.ViewHolder>(ExamDiffCallback()
                 R.anim.item_animation_from_right
             )
             itemView.startAnimation(animation)
+
+            itemView.setOnClickListener { iOnClickExam?.onClickExam(exam) }
 
         }
 
