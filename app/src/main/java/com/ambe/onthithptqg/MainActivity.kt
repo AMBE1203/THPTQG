@@ -41,7 +41,9 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener, IStat
 
     override fun onOptionClicked(position: Int, objectClicked: Any?) {
         // Set the toolbar title
-        title = mTitles[position]
+        if (position == 0 || position == 3) {
+            title = mTitles[position]
+        }
 
         // Set the right options selected
         mMenuAdapter?.setViewSelected(position, true)

@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.ambe.onthithptqg.R
+import com.ambe.onthithptqg.helper.Const
 import com.ambe.onthithptqg.interfaces.IStateToolbarMain
 import com.ambe.onthithptqg.ui.BaseFragment
 import kotlinx.android.synthetic.main.fragment_subjects.*
@@ -47,6 +48,13 @@ class SubjectsFragment : BaseFragment() {
             stateToolbarMain?.showToolbar()
 
             navController.navigateUp()
+        }
+
+        lnl_de_thi.setOnClickListener {
+            var bundle = Bundle()
+            bundle.putString("subject", subject)
+            bundle.putString("type", "Đề thi minh họa")
+            navController.navigate(R.id.action_subjectsFragment_to_listExamFragment, bundle)
         }
 
     }

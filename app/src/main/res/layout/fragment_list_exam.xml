@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient"
+    tools:context=".ui.subjects.SubjectsFragment">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/tb_fr_list_exam"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:cardElevation="@dimen/_3sdp"
+        app:layout_constraintBottom_toTopOf="@id/rcv_exam"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite">
+
+            <com.ambe.onthithptqg.ui.view.ImageAnimClick
+                android:id="@+id/img_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/ic_arrow_left"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/img_back"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/txt_ten_mon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Toán Học"
+                    android:textColor="@color/colorBlack"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txt_ten_lua_chon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đề thi minh họa" />
+            </LinearLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rcv_exam"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/_4sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tb_fr_list_exam"></android.support.v7.widget.RecyclerView>
+
+
+</android.support.constraint.ConstraintLayout>
