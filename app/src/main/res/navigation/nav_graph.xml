@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/questionFragment"
-        android:name="com.ambe.onthithptqg.ui.question.QuestionFragment"
+        android:name="com.ambe.onthithptqg.ui.listquestion.ListQuestionFragment"
         android:label="fragment_question"
-        tools:layout="@layout/fragment_question" />
+        tools:layout="@layout/fragment_list_question" />
 </navigation>

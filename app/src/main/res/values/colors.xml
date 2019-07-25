@@ -7,7 +7,9 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorClickSelect">#b3b3b3</color>
     <color name="colorGreen">#4CAF50</color>
-    <color name="colorGray">#DFDADA</color>
+    <color name="colorGray">#D3C9C9</color>
     <color name="colorBlue">#2196f3</color>
+    <color name="transparent">#00000000</color>
+
 
 </resources>
