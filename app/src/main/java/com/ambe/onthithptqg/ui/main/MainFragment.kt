@@ -2,6 +2,7 @@ package com.ambe.onthithptqg.ui.main
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,6 +40,8 @@ class MainFragment : BaseFragment(), View.OnClickListener {
 
     }
 
+
+
     private fun goToSubjectFrgament(subject: String) {
         var bundle = Bundle()
         bundle.putString("subject", subject)
@@ -51,6 +54,8 @@ class MainFragment : BaseFragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
+
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
 

@@ -26,6 +26,8 @@
     <string name="cancel">Cancel</string>
     <string name="ok">OK</string>
     <string name="thong_bao">Thông báo</string>
+    <string name="finish">Finish</string>
+    <string name="giai_thich_dap_an">GIẢI THÍCH ĐÁP ÁN:</string>
 
 
     <array name="menuOptions">

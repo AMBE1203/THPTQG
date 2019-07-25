@@ -16,6 +16,9 @@ import com.ambe.onthithptqg.model.Question
 import com.ambe.onthithptqg.ui.BaseFragment
 import com.ambe.onthithptqg.ui.view.tablayout.indicators.DachshundIndicator
 import kotlinx.android.synthetic.main.fragment_list_question.*
+import android.os.CountDownTimer
+import com.ambe.onthithptqg.helper.Hourglass
+import java.text.SimpleDateFormat
 
 
 class ListQuestionFragment : BaseFragment(), IOnClickNumber {
@@ -27,6 +30,8 @@ class ListQuestionFragment : BaseFragment(), IOnClickNumber {
     }
 
     private var isShowNumbew = false
+
+    private var timer: Hourglass? = null
 
 
     override fun onCreateView(
@@ -62,6 +67,15 @@ class ListQuestionFragment : BaseFragment(), IOnClickNumber {
         (list as ArrayList).add(Question("8"))
         (list as ArrayList).add(Question("9"))
         (list as ArrayList).add(Question("10"))
+        (list as ArrayList).add(Question("11"))
+        (list as ArrayList).add(Question("12"))
+        (list as ArrayList).add(Question("13"))
+        (list as ArrayList).add(Question("14"))
+        (list as ArrayList).add(Question("15"))
+        (list as ArrayList).add(Question("16"))
+        (list as ArrayList).add(Question("17"))
+        (list as ArrayList).add(Question("18"))
+        (list as ArrayList).add(Question("19"))
 
         var listNumber: ArrayList<Int> = ArrayList()
 
@@ -114,7 +128,40 @@ class ListQuestionFragment : BaseFragment(), IOnClickNumber {
 
         }
 
+        var simDate = SimpleDateFormat("mm:ss")
 
+        timer = object : Hourglass() {
+
+
+            override fun onTimerTick(timeRemaining: Long) {
+                txt_time.text = simDate.format(timeRemaining)
+            }
+
+            override fun onTimerFinish() {
+                txt_time.text = "Finish!"
+            }
+
+
+        }
+
+        timer!!.setTime(60 * 30 * 1000)
+        timer!!.setInterval(1000)
+
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+        if (timer != null) {
+            timer!!.pauseTimer()
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (timer != null) {
+            timer!!.resumeTimer()
+        }
     }
 
     private fun showListNumber() {

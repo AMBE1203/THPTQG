@@ -23,6 +23,20 @@ class QuestionFragment : BaseFragment() {
         return inflater.inflate(R.layout.fragment_question, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        addControls()
+        addEvents()
+    }
+
+    private fun addEvents() {
+
+    }
+
+    private fun addControls() {
+
+    }
+
 
     companion object {
 
