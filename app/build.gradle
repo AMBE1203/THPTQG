@@ -68,7 +68,7 @@ dependencies {
     implementation "com.hanks:htextview-rainbow:$htextview_version"     // optional
 
 
-    implementation 'com.github.Nishant-Pathak:MathView:v1.1'
+    implementation 'in.hourglass.mathrender:katexmathview:1.0.2'
 
 
 }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.question.QuestionFragment">
 
-    <com.nishant.math.MathView
+    <katex.hourglass.in.mathlib.MathView
         android:id="@+id/txt_cau_hoi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher_background"
+        android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/scroll_dap_an"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -49,136 +50,127 @@
                 android:layout_height="1dp"
                 android:background="#03D9FF" />
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_6sdp">
 
-                <LinearLayout
-                    android:id="@+id/lnl_a"
+            <LinearLayout
+                android:id="@+id/lnl_a"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/_6sdp">
+
+                <TextView
+                    android:id="@+id/txtA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_answer_no_selected"
+                    android:gravity="center"
+                    android:text="A"
+                    android:textStyle="bold" />
+
+                <katex.hourglass.in.mathlib.MathView
+                    android:id="@+id/txt_a"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_answer_no_selected"
-                        android:gravity="center"
-                        android:text="A"
-                        android:textStyle="bold" />
-
-                    <com.nishant.math.MathView
-                        android:id="@+id/txt_a"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_6sdp"></com.nishant.math.MathView>
-                </LinearLayout>
-            </ScrollView>
+                    android:layout_marginLeft="@dimen/_6sdp" />
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#03D9FF" />
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_6sdp">
 
-                <LinearLayout
-                    android:id="@+id/lnl_b"
+            <LinearLayout
+                android:id="@+id/lnl_b"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/_6sdp">
+
+                <TextView
+                    android:id="@+id/txtB"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_answer_no_selected"
+                    android:gravity="center"
+                    android:text="B"
+                    android:textStyle="bold" />
+
+                <katex.hourglass.in.mathlib.MathView
+                    android:id="@+id/txt_b"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_answer_no_selected"
-                        android:gravity="center"
-                        android:text="B"
-                        android:textStyle="bold" />
-
-                    <com.nishant.math.MathView
-                        android:id="@+id/txt_b"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_6sdp"></com.nishant.math.MathView>
-                </LinearLayout>
-            </ScrollView>
+                    android:layout_marginLeft="@dimen/_6sdp" />
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#03D9FF" />
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_6sdp">
 
-                <LinearLayout
-                    android:id="@+id/lnl_c"
+            <LinearLayout
+                android:id="@+id/lnl_c"
+                android:layout_width="match_parent"
+
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/_6sdp">
+
+                <TextView
+                    android:id="@+id/txtC"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_answer_no_selected"
+                    android:gravity="center"
+                    android:text="C"
+                    android:textStyle="bold" />
+
+                <katex.hourglass.in.mathlib.MathView
+                    android:id="@+id/txt_c"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_answer_no_selected"
-                        android:gravity="center"
-                        android:text="C"
-                        android:textStyle="bold" />
-
-                    <com.nishant.math.MathView
-                        android:id="@+id/txt_c"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_6sdp"></com.nishant.math.MathView>
-                </LinearLayout>
-            </ScrollView>
+                    android:layout_marginLeft="@dimen/_6sdp" />
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#03D9FF" />
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_6sdp">
 
-                <LinearLayout
-                    android:id="@+id/lnl_d"
+            <LinearLayout
+                android:id="@+id/lnl_d"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/_6sdp">
+
+                <TextView
+                    android:id="@+id/txtD"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_answer_no_selected"
+                    android:gravity="center"
+                    android:text="D"
+                    android:textStyle="bold" />
+
+                <katex.hourglass.in.mathlib.MathView
+                    android:id="@+id/txt_d"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/bg_answer_no_selected"
-                        android:gravity="center"
-                        android:text="D"
-                        android:textStyle="bold" />
-
-                    <com.nishant.math.MathView
-                        android:id="@+id/txt_d"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_6sdp"></com.nishant.math.MathView>
-                </LinearLayout>
-            </ScrollView>
+                    android:layout_marginLeft="@dimen/_6sdp" />
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -211,17 +203,12 @@
                         android:textColor="#0088FF" />
                 </LinearLayout>
 
-                <ScrollView
+
+                <katex.hourglass.in.mathlib.MathView
+                    android:id="@+id/txt_giai_thic_dap_an"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_6sdp">
-
-                    <com.nishant.math.MathView
-                        android:id="@+id/txt_giai_thic_dap_an"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/_6sdp"></com.nishant.math.MathView>
-                </ScrollView>
+                    android:layout_marginLeft="@dimen/_6sdp" />
 
             </LinearLayout>
 
