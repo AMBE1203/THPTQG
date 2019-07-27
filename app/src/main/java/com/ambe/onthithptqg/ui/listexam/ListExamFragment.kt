@@ -53,19 +53,20 @@ class ListExamFragment : BaseFragment() {
 
     private fun subscribeUi() {
         var list = ArrayList<Exam>()
-        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", 90, 30))
-        list.add(Exam("Đề thi minh họa lần 2", "Bộ GDDT", "90 phút", 90, 30))
-        list.add(Exam("Đề thi minh họa lần 3", "Bộ GDDT", "90 phút", 90, 30))
-        list.add(Exam("Đề thi minh họa lần 4", "Bộ GDDT", "90 phút", 90, 30))
-        list.add(Exam("Đề thi minh họa lần 5", "Bộ GDDT", "90 phút", 90, 30))
-        list.add(Exam("Đề thi minh họa lần 6", "Bộ GDDT", "90 phút", 90, 30))
-        list.add(Exam("Đề thi minh họa lần 7", "Bộ GDDT", "90 phút", 90, 30))
-        list.add(Exam("Đề thi minh họa lần 7", "Bộ GDDT", "90 phút", 90, 30))
-        list.add(Exam("Đề thi minh họa lần 7", "Bộ GDDT", "90 phút", 90, 30))
-        list.add(Exam("Đề thi minh họa lần 7", "Bộ GDDT", "90 phút", 90, 30))
-        list.add(Exam("Đề thi minh họa lần 7", "Bộ GDDT", "90 phút", 90, 30))
-        list.add(Exam("Đề thi minh họa lần 7", "Bộ GDDT", "90 phút", 90, 30))
-        list.add(Exam("Đề thi minh họa lần 7", "Bộ GDDT", "90 phút", 90, 30))
+        var list1 = listOf<String>()
+        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
+        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
+        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
+        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
+        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
+        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
+        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
+        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
+        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
+        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
+        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
+        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
+
 
         adapter.submitList(list)
 

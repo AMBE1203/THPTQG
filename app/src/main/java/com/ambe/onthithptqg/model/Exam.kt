@@ -7,6 +7,7 @@ data class Exam(
     var ten: String,
     var diaChi: String,
     var thoiGian: String,
+    var arrIDCauHoi: List<String>,
     var soCau: Int,
     var soCauLamDuoc: Int
 )
