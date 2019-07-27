@@ -19,6 +19,7 @@ import com.ambe.onthithptqg.helper.PrefUtils
 import com.ambe.onthithptqg.interfaces.IStateToolbarMain
 import com.ambe.onthithptqg.sevices.AlarmReceiver
 import com.ambe.onthithptqg.ui.dialog.AlarmDialog
+import com.ambe.onthithptqg.ui.listquestion.ListQuestionFragment
 import com.ambe.onthithptqg.ui.main.MainFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -172,7 +173,7 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener, IStat
 
     override fun onBackPressed() {
         var id = navController?.currentDestination?.id
-        //  var fragment = nav_host_fragment.childFragmentManager.primaryNavigationFragment
+        var fragment = nav_host_fragment.childFragmentManager.primaryNavigationFragment
         when (id) {
             R.id.mainFragment -> {
                 exits()
@@ -188,6 +189,8 @@ class MainActivity : AppCompatActivity(), DuoMenuView.OnMenuClickListener, IStat
                 navController?.navigateUp()
 
             }
+
+            R.id.listQuestionFragment -> (fragment as ListQuestionFragment).onBack()
 
             else -> super.onBackPressed()
 

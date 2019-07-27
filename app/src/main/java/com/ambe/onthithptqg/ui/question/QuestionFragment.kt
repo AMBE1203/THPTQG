@@ -1,5 +1,7 @@
 package com.ambe.onthithptqg.ui.question
 
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +11,7 @@ import com.ambe.onthithptqg.R
 import com.ambe.onthithptqg.interfaces.IOnSelectedAnswer
 import com.ambe.onthithptqg.model.Question
 import com.ambe.onthithptqg.ui.BaseFragment
+import com.ambe.onthithptqg.ui.listquestion.QuestionViewModel
 import kotlinx.android.synthetic.main.fragment_question.*
 
 
@@ -16,6 +19,7 @@ class QuestionFragment : BaseFragment() {
 
     private var selectedAnswer: IOnSelectedAnswer? = null
     private var question: Question? = null
+    private var questionViewModel: QuestionViewModel? = null
 
 
     override fun onCreateView(
@@ -97,6 +101,9 @@ class QuestionFragment : BaseFragment() {
     }
 
     private fun addControls() {
+
+        questionViewModel = ViewModelProviders.of(activity!!).get(QuestionViewModel::class.java)
+
         txt_a.settings.builtInZoomControls = true
         txt_b.settings.builtInZoomControls = true
         txt_c.settings.builtInZoomControls = true
@@ -123,6 +130,7 @@ class QuestionFragment : BaseFragment() {
             txt_b.setDisplayText(question!!.dapAnB)
             txt_c.setDisplayText(question!!.dapAnC)
             txt_d.setDisplayText(question!!.dapAnD)
+            txt_giai_thic_dap_an.setDisplayText(question!!.giaiThich)
 
             if (question!!.luaChon != "") {
                 when (question!!.luaChon) {
@@ -132,6 +140,15 @@ class QuestionFragment : BaseFragment() {
                     "D" -> txtD.setBackgroundResource(R.drawable.bg_answer_selected)
                 }
             }
+
+            questionViewModel?.getIsShowDapAn()?.observe(viewLifecycleOwner, Observer {
+                if (it == true) {
+                    lnl_giai_thich.visibility = View.VISIBLE
+                } else {
+                    lnl_giai_thich.visibility = View.GONE
+
+                }
+            })
         }
 
 

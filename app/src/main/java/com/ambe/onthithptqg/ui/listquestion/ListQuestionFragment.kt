@@ -1,5 +1,6 @@
 package com.ambe.onthithptqg.ui.listquestion
 
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.util.Log
@@ -18,6 +19,7 @@ import com.ambe.onthithptqg.ui.view.tablayout.indicators.DachshundIndicator
 import kotlinx.android.synthetic.main.fragment_list_question.*
 import com.ambe.onthithptqg.helper.Hourglass
 import com.ambe.onthithptqg.interfaces.IOnSelectedAnswer
+import com.ambe.onthithptqg.ui.dialog.ResultDialog
 import java.text.SimpleDateFormat
 import kotlin.collections.ArrayList
 
@@ -56,6 +58,8 @@ class ListQuestionFragment : BaseFragment(), IOnClickNumber, IOnSelectedAnswer {
 
     private var listNumber = ArrayList<Int>()
 
+    private var questionViewModel: QuestionViewModel? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -75,9 +79,60 @@ class ListQuestionFragment : BaseFragment(), IOnClickNumber, IOnSelectedAnswer {
     private fun addEvents() {
 
         view_opacity.setOnClickListener { showListNumber() }
+
+        txt_nop_bai.setOnClickListener { showDialogResult() }
+
+        img_back.setOnClickListener {
+            questionViewModel?.setIsShowDapAn(false)
+
+            navController.navigateUp()
+        }
+    }
+
+    private fun showDialogResult() {
+        var result = ResultDialog(context!!)
+
+        var soCauDung = 0
+        var soCauSai = 0
+
+        for (question in list) {
+            if (question.luaChon != "") {
+                if (question.luaChon == question.dapAnDung) {
+                    soCauDung++
+                } else {
+                    soCauSai++
+                }
+            }
+        }
+
+        var soCauDalam = soCauDung + soCauSai
+        var soCauChuaLam = list.size - soCauDalam
+
+
+        result.setResults(soCauDung, soCauSai, soCauDalam, soCauChuaLam)
+
+        result.setListener(object : ResultDialog.IOnResultDialogListener {
+            override fun onCancel() {
+
+            }
+
+            override fun onAgree(time: String) {
+
+                view_pager_question.setCurrentItem(0, true)
+                questionViewModel?.setIsShowDapAn(true)
+                if (timer != null) {
+                    timer!!.pauseTimer()
+                }
+                result.dismiss()
+            }
+        })
+
+        result.show()
     }
 
     private fun addControls() {
+
+        questionViewModel = ViewModelProviders.of(activity!!).get(QuestionViewModel::class.java)
 
 
         (list as ArrayList).add(
@@ -581,7 +636,8 @@ class ListQuestionFragment : BaseFragment(), IOnClickNumber, IOnSelectedAnswer {
         }
 
 
-        var grid = GridLayoutManager(activity, 3, GridLayoutManager.HORIZONTAL, false)
+        var grid =
+            GridLayoutManager(activity, 3, GridLayoutManager.HORIZONTAL, false) as GridLayoutManager
         rcv_number.setHasFixedSize(true)
         rcv_number.layoutManager = grid
         numberAdapter = NumberAdapter(listNumber, this)
@@ -636,6 +692,7 @@ class ListQuestionFragment : BaseFragment(), IOnClickNumber, IOnSelectedAnswer {
 
             override fun onTimerFinish() {
                 txt_time.text = "Finish!"
+                showDialogResult()
             }
 
 
@@ -660,6 +717,17 @@ class ListQuestionFragment : BaseFragment(), IOnClickNumber, IOnSelectedAnswer {
             timer!!.resumeTimer()
         }
     }
+
+    fun onBack() {
+        if (isShowNumber) {
+            showListNumber()
+        } else {
+
+            questionViewModel?.setIsShowDapAn(false)
+            navController.navigateUp()
+        }
+    }
+
 
     private fun showListNumber() {
         // todo show list number of question
