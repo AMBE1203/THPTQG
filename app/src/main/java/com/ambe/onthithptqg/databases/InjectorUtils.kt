@@ -1,6 +1,8 @@
 package com.ambe.onthithptqg.databases
 
 import android.content.Context
+import com.ambe.onthithptqg.databases.exam.ExamRepository
+import com.ambe.onthithptqg.databases.exam.ExamViewModelFactory
 import com.ambe.onthithptqg.databases.question.QuestionRepository
 import com.ambe.onthithptqg.databases.question.QuestionViewModelFactory
 
@@ -15,5 +17,15 @@ object InjectorUtils {
     fun providerQuestionViewModelFactory(context: Context): QuestionViewModelFactory {
         val repository = getQuestionRepository(context)
         return QuestionViewModelFactory(repository)
+    }
+
+
+    private fun getExamRepository(context: Context): ExamRepository {
+        return ExamRepository.getInstance(MyDb.getInstance(context.applicationContext).examDao())
+    }
+
+    fun providerExamViewModelFactory(context: Context): ExamViewModelFactory {
+        val repository = getExamRepository(context)
+        return ExamViewModelFactory(repository)
     }
 }
