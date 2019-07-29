@@ -100,6 +100,17 @@ class QuestionFragment : BaseFragment() {
 
     }
 
+    private fun setBgDapAn(str: String, bg: Int) {
+
+        when (str) {
+            "A" -> txtA.setBackgroundResource(bg)
+            "B" -> txtB.setBackgroundResource(bg)
+            "C" -> txtC.setBackgroundResource(bg)
+            "D" -> txtD.setBackgroundResource(bg)
+        }
+
+    }
+
     private fun addControls() {
 
         questionViewModel = ViewModelProviders.of(activity!!).get(QuestionViewModel::class.java)
@@ -133,17 +144,25 @@ class QuestionFragment : BaseFragment() {
             txt_giai_thic_dap_an.setDisplayText(question!!.giaiThich)
 
             if (question!!.luaChon != "") {
-                when (question!!.luaChon) {
-                    "A" -> txtA.setBackgroundResource(R.drawable.bg_answer_selected)
-                    "B" -> txtB.setBackgroundResource(R.drawable.bg_answer_selected)
-                    "C" -> txtC.setBackgroundResource(R.drawable.bg_answer_selected)
-                    "D" -> txtD.setBackgroundResource(R.drawable.bg_answer_selected)
-                }
+
+                setBgDapAn(question!!.luaChon, R.drawable.bg_answer_selected)
+
             }
 
             questionViewModel?.getIsShowDapAn()?.observe(viewLifecycleOwner, Observer {
                 if (it == true) {
                     lnl_giai_thich.visibility = View.VISIBLE
+                    if (question!!.luaChon == question!!.dapAnDung) {
+
+                        setBgDapAn(question!!.luaChon, R.drawable.bg_answer_selected)
+
+                    } else {
+
+                        setBgDapAn(question!!.luaChon, R.drawable.bg_answer_wrong)
+
+                    }
+
+                    setBgDapAn(question!!.dapAnDung, R.drawable.bg_answer_selected)
                 } else {
                     lnl_giai_thich.visibility = View.GONE
 
