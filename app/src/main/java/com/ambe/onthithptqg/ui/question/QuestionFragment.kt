@@ -11,7 +11,7 @@ import com.ambe.onthithptqg.R
 import com.ambe.onthithptqg.interfaces.IOnSelectedAnswer
 import com.ambe.onthithptqg.model.Question
 import com.ambe.onthithptqg.ui.BaseFragment
-import com.ambe.onthithptqg.ui.listquestion.QuestionViewModel
+import com.ambe.onthithptqg.ui.listquestion.ShowDapAnViewModel
 import kotlinx.android.synthetic.main.fragment_question.*
 
 
@@ -19,7 +19,8 @@ class QuestionFragment : BaseFragment() {
 
     private var selectedAnswer: IOnSelectedAnswer? = null
     private var question: Question? = null
-    private var questionViewModel: QuestionViewModel? = null
+    private var showDapAnViewModel: ShowDapAnViewModel? = null
+    private val TAG = QuestionFragment::class.java.simpleName
 
 
     override fun onCreateView(
@@ -38,13 +39,12 @@ class QuestionFragment : BaseFragment() {
 
     private fun addEvents() {
 
+
+
         lnl_a.setOnClickListener {
             chooseAnswer(txtA, txtB, txtC, txtD)
         }
 
-        txt_a.setOnClickListener {
-            chooseAnswer(txtA, txtB, txtC, txtD)
-        }
 
         lnl_b.setOnClickListener {
             chooseAnswer(txtB, txtA, txtC, txtD)
@@ -59,6 +59,10 @@ class QuestionFragment : BaseFragment() {
             chooseAnswer(txtD, txtB, txtC, txtA)
         }
 
+        txt_a.setOnClickListener {
+            chooseAnswer(txtA, txtB, txtC, txtD)
+        }
+
         txt_b.setOnClickListener {
             chooseAnswer(txtB, txtA, txtC, txtD)
         }
@@ -71,6 +75,7 @@ class QuestionFragment : BaseFragment() {
         txt_d.setOnClickListener {
             chooseAnswer(txtD, txtB, txtC, txtA)
         }
+
 
 
     }
@@ -113,7 +118,7 @@ class QuestionFragment : BaseFragment() {
 
     private fun addControls() {
 
-        questionViewModel = ViewModelProviders.of(activity!!).get(QuestionViewModel::class.java)
+        showDapAnViewModel = ViewModelProviders.of(activity!!).get(ShowDapAnViewModel::class.java)
 
         txt_a.settings.builtInZoomControls = true
         txt_b.settings.builtInZoomControls = true
@@ -149,9 +154,11 @@ class QuestionFragment : BaseFragment() {
 
             }
 
-            questionViewModel?.getIsShowDapAn()?.observe(viewLifecycleOwner, Observer {
+            showDapAnViewModel?.getIsShowDapAn()?.observe(viewLifecycleOwner, Observer {
                 if (it == true) {
                     lnl_giai_thich.visibility = View.VISIBLE
+                    setClickableForView(false)
+
                     if (question!!.luaChon == question!!.dapAnDung) {
 
                         setBgDapAn(question!!.luaChon, R.drawable.bg_answer_selected)
@@ -165,6 +172,7 @@ class QuestionFragment : BaseFragment() {
                     setBgDapAn(question!!.dapAnDung, R.drawable.bg_answer_selected)
                 } else {
                     lnl_giai_thich.visibility = View.GONE
+                    setClickableForView(true)
 
                 }
             })
@@ -186,6 +194,18 @@ class QuestionFragment : BaseFragment() {
 //            }
 //        }
 
+    }
+
+    private fun setClickableForView(b: Boolean) {
+        lnl_a.isClickable = b
+        lnl_b.isClickable = b
+        lnl_c.isClickable = b
+        lnl_d.isClickable = b
+
+        txt_a.isClickable = b
+        txt_b.isClickable = b
+        txt_c.isClickable = b
+        txt_d.isClickable = b
     }
 
 

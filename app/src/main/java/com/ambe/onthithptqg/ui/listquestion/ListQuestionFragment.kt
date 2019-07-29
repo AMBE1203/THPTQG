@@ -3,7 +3,6 @@ package com.ambe.onthithptqg.ui.listquestion
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -58,7 +57,7 @@ class ListQuestionFragment : BaseFragment(), IOnClickNumber, IOnSelectedAnswer {
 
     private var listNumber = ArrayList<Int>()
 
-    private var questionViewModel: QuestionViewModel? = null
+    private var showDapAnViewModel: ShowDapAnViewModel? = null
 
 
     override fun onCreateView(
@@ -83,7 +82,7 @@ class ListQuestionFragment : BaseFragment(), IOnClickNumber, IOnSelectedAnswer {
         txt_nop_bai.setOnClickListener { showDialogResult() }
 
         img_back.setOnClickListener {
-            questionViewModel?.setIsShowDapAn(false)
+            showDapAnViewModel?.setIsShowDapAn(false)
 
             navController.navigateUp()
         }
@@ -119,7 +118,7 @@ class ListQuestionFragment : BaseFragment(), IOnClickNumber, IOnSelectedAnswer {
             override fun onAgree(time: String) {
 
                 view_pager_question.setCurrentItem(0, true)
-                questionViewModel?.setIsShowDapAn(true)
+                showDapAnViewModel?.setIsShowDapAn(true)
                 if (timer != null) {
                     timer!!.pauseTimer()
                 }
@@ -132,501 +131,29 @@ class ListQuestionFragment : BaseFragment(), IOnClickNumber, IOnSelectedAnswer {
 
     private fun addControls() {
 
-        questionViewModel = ViewModelProviders.of(activity!!).get(QuestionViewModel::class.java)
+        showDapAnViewModel = ViewModelProviders.of(activity!!).get(ShowDapAnViewModel::class.java)
 
 
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
-        (list as ArrayList).add(
-            Question(
-                "Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?",
-                "",
-                "\\(x^2 + 6x + C\\).",
-                "\\(2x^2 + C\\).",
-                "\\(2x^2 + 6x + C\\).",
-                "\\(x^2 + C.\\)",
-                "A",
-                " Vì nó đúng"
-            )
-        )
+        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
+        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
+        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
+        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
+        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
+        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
+        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
+        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
+        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
+        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
+        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
+        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
+        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
+        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
+        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
+        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
+        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
+        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
+        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
+        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
 
 
         var listNumber: ArrayList<Int> = ArrayList()
@@ -637,7 +164,7 @@ class ListQuestionFragment : BaseFragment(), IOnClickNumber, IOnSelectedAnswer {
 
 
         var grid =
-            GridLayoutManager(activity, 3, GridLayoutManager.HORIZONTAL, false) as GridLayoutManager
+            GridLayoutManager(activity, 3, GridLayoutManager.HORIZONTAL, false)
         rcv_number.setHasFixedSize(true)
         rcv_number.layoutManager = grid
         numberAdapter = NumberAdapter(listNumber, this)
@@ -723,7 +250,7 @@ class ListQuestionFragment : BaseFragment(), IOnClickNumber, IOnSelectedAnswer {
             showListNumber()
         } else {
 
-            questionViewModel?.setIsShowDapAn(false)
+            showDapAnViewModel?.setIsShowDapAn(false)
             navController.navigateUp()
         }
     }

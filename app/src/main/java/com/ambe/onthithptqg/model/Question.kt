@@ -10,7 +10,7 @@ import android.arch.persistence.room.PrimaryKey
  */
 @Entity(tableName = "question")
 class Question {
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     var id: Int = 0
     @ColumnInfo(name = "cauHoi")
@@ -29,11 +29,15 @@ class Question {
     var dapAnDung: String
     @ColumnInfo(name = "giaiThich")
     var giaiThich: String
+    @ColumnInfo(name = "note")
+    var note: Boolean
+    @ColumnInfo(name = "maDe")
+    var maDe: String
 
 
     var luaChon: String = ""
 
-    constructor() : this("", "", "", "", "", "", "", "")
+    constructor() : this("", "", "", "", "", "", "", "", false, "")
 
     @Ignore
     constructor(
@@ -44,7 +48,9 @@ class Question {
         dapAnC: String,
         dapAnD: String,
         dapAnDung: String,
-        giaiThich: String
+        giaiThich: String,
+        note: Boolean,
+        maDe: String
     ) {
         this.cauHoi = cauHoi
         this.hinhAnh = hinhAnh
@@ -54,6 +60,8 @@ class Question {
         this.dapAnD = dapAnD
         this.dapAnDung = dapAnDung
         this.giaiThich = giaiThich
+        this.note = note
+        this.maDe = maDe
     }
 
 }

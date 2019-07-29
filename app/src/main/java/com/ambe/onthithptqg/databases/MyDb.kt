@@ -4,6 +4,9 @@ import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
+import com.ambe.onthithptqg.databases.question.ExamDao
+import com.ambe.onthithptqg.databases.question.QuestionDao
+import com.ambe.onthithptqg.model.Exam
 import com.ambe.onthithptqg.model.Question
 
 /**
@@ -11,10 +14,12 @@ import com.ambe.onthithptqg.model.Question
  */
 private const val DATABASE_NAME = "my_db"
 
-@Database(entities = [Question::class], version = 1, exportSchema = false)
+@Database(entities = [Question::class, Exam::class], version = 1, exportSchema = false)
 abstract class MyDb : RoomDatabase() {
 
     abstract fun questionDao(): QuestionDao
+
+    abstract fun examDao(): ExamDao
 
     companion object {
         @Volatile

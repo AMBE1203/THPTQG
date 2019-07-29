@@ -75,6 +75,7 @@
             android:id="@+id/tab_question"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorGray"
             custom:ddAnimatedIndicator="dachshund"
             custom:ddCenterAlign="false"
             custom:ddIndicatorColor="@android:color/white"

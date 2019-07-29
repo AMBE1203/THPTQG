@@ -6,7 +6,7 @@ import android.arch.lifecycle.ViewModel
 /**
  *  Created by AMBE on 27/7/2019 at 14:33 PM.
  */
-class QuestionViewModel : ViewModel() {
+class ShowDapAnViewModel : ViewModel() {
     private val isShowDapAn = MutableLiveData<Boolean>()
 
     fun setIsShowDapAn(boolean: Boolean) {

@@ -57,6 +57,10 @@ class SubjectsFragment : BaseFragment() {
             navController.navigate(R.id.action_subjectsFragment_to_listExamFragment, bundle)
         }
 
+        lnl_cau_danh_dau.setOnClickListener {
+            navController.navigate(R.id.action_subjectsFragment_to_noteFragment)
+        }
+
     }
 
     private fun addControls() {

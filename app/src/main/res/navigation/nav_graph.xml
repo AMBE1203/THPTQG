@@ -35,6 +35,9 @@
         <action
             android:id="@+id/action_subjectsFragment_to_listExamFragment"
             app:destination="@id/listExamFragment" />
+        <action
+            android:id="@+id/action_subjectsFragment_to_noteFragment"
+            app:destination="@id/noteFragment" />
     </fragment>
     <fragment
         android:id="@+id/listExamFragment"
@@ -52,4 +55,9 @@
         android:name="com.ambe.onthithptqg.ui.listquestion.ListQuestionFragment"
         android:label="fragment_question"
         tools:layout="@layout/fragment_list_question" />
+    <fragment
+        android:id="@+id/noteFragment"
+        android:name="com.ambe.onthithptqg.ui.note.NoteFragment"
+        android:label="fragment_note"
+        tools:layout="@layout/fragment_note" />
 </navigation>
