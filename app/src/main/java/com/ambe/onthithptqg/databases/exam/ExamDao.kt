@@ -12,4 +12,7 @@ import com.ambe.onthithptqg.model.Exam
 interface ExamDao {
     @Query("select * from exam where monHoc = :sub")
     fun getExamBySub(sub: String): LiveData<List<Exam>>
+
+    @Query("select * from exam")
+    fun getExams(): LiveData<List<Exam>>
 }

@@ -7,10 +7,10 @@ import android.support.v7.util.DiffUtil
  */
 class ExamDiffCallback : DiffUtil.ItemCallback<Exam>() {
     override fun areItemsTheSame(oldItem: Exam, newItem: Exam): Boolean {
-        return oldItem.ten == newItem.ten
+        return oldItem.tenDe == newItem.tenDe
     }
 
     override fun areContentsTheSame(oldItem: Exam, newItem: Exam): Boolean {
-        return oldItem == newItem
+        return oldItem.equals(newItem)
     }
 }

@@ -17,4 +17,7 @@ object Const {
     const val ALARM_EXTRA = "ALARM"
     const val TIME_ALARM = "time_alarm"
     const val GIO_HOC_BAI = "gio_hoc_bai"
+    const val MA_DE = "ma_de"
+    const val SO_CAU = "so_cau"
+    const val THOI_GIAN = "thoi_gian"
 }

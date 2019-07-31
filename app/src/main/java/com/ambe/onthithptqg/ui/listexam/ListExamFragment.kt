@@ -1,15 +1,21 @@
 package com.ambe.onthithptqg.ui.listexam
 
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import com.ambe.onthithptqg.R
+import com.ambe.onthithptqg.databases.InjectorUtils
+import com.ambe.onthithptqg.databases.exam.ExamViewModel
+import com.ambe.onthithptqg.helper.Const
 import com.ambe.onthithptqg.interfaces.IOnClickExam
 import com.ambe.onthithptqg.model.Exam
 import com.ambe.onthithptqg.ui.BaseFragment
@@ -21,6 +27,7 @@ class ListExamFragment : BaseFragment() {
     private val adapter = ExamAdapter()
     private var subject: String? = null
     private var type: String? = null
+    private var viewModel: ExamViewModel? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -36,7 +43,12 @@ class ListExamFragment : BaseFragment() {
 
     private fun addControls() {
 
+        var factory = InjectorUtils.providerExamViewModelFactory(context!!)
+        viewModel = ViewModelProviders.of(this, factory).get(ExamViewModel::class.java)
+
         subject = arguments?.getString("subject")
+
+
         type = arguments?.getString("type")
         txt_ten_mon.text = subject
         txt_ten_lua_chon.text = type
@@ -52,28 +64,25 @@ class ListExamFragment : BaseFragment() {
     }
 
     private fun subscribeUi() {
-        var list = ArrayList<Exam>()
-        var list1 = listOf<String>()
-        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
-        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
-        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
-        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
-        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
-        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
-        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
-        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
-        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
-        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
-        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
-        list.add(Exam("Đề thi minh họa lần 1", "Bộ GDDT", "90 phút", list1, 90, 30))
+        viewModel?.getExamBySub(subject!!)?.observe(viewLifecycleOwner, Observer {
+            if (it != null) {
 
+                adapter.submitList(it)
 
-        adapter.submitList(list)
+            }
+
+        })
+
 
         adapter.setOnClickExam(object : IOnClickExam {
             override fun onClickExam(exam: Exam) {
 
-                navController.navigate(R.id.action_listExamFragment_to_questionFragment)
+                var bundle = Bundle()
+                bundle.putString(Const.MA_DE, exam.maDe)
+                bundle.putInt(Const.SO_CAU, exam.soCau)
+                bundle.putString(Const.THOI_GIAN, exam.thoiGian.split(" ")[0])
+
+                navController.navigate(R.id.action_listExamFragment_to_questionFragment, bundle)
 
             }
         })

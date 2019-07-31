@@ -1,8 +1,10 @@
 package com.ambe.onthithptqg.ui.listquestion
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -11,6 +13,10 @@ import android.widget.LinearLayout
 import com.ambe.onthithptqg.MainActivity
 
 import com.ambe.onthithptqg.R
+import com.ambe.onthithptqg.databases.InjectorUtils
+import com.ambe.onthithptqg.databases.MyDb
+import com.ambe.onthithptqg.databases.question.QuestionViewModel
+import com.ambe.onthithptqg.helper.Const
 import com.ambe.onthithptqg.interfaces.IOnClickNumber
 import com.ambe.onthithptqg.model.Question
 import com.ambe.onthithptqg.ui.BaseFragment
@@ -19,6 +25,7 @@ import kotlinx.android.synthetic.main.fragment_list_question.*
 import com.ambe.onthithptqg.helper.Hourglass
 import com.ambe.onthithptqg.interfaces.IOnSelectedAnswer
 import com.ambe.onthithptqg.ui.dialog.ResultDialog
+import org.jetbrains.anko.doAsync
 import java.text.SimpleDateFormat
 import kotlin.collections.ArrayList
 
@@ -58,6 +65,7 @@ class ListQuestionFragment : BaseFragment(), IOnClickNumber, IOnSelectedAnswer {
     private var listNumber = ArrayList<Int>()
 
     private var showDapAnViewModel: ShowDapAnViewModel? = null
+    private var viewModel: QuestionViewModel? = null
 
 
     override fun onCreateView(
@@ -133,45 +141,80 @@ class ListQuestionFragment : BaseFragment(), IOnClickNumber, IOnSelectedAnswer {
 
         showDapAnViewModel = ViewModelProviders.of(activity!!).get(ShowDapAnViewModel::class.java)
 
+        var factory = InjectorUtils.providerQuestionViewModelFactory(context!!)
+        viewModel = ViewModelProviders.of(this, factory).get(QuestionViewModel::class.java)
 
-        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
-        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
-        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
-        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
-        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
-        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
-        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
-        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
-        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
-        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
-        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
-        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
-        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
-        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
-        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
-        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
-        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
-        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
-        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
-        (list as ArrayList).add(Question("Họ tất cả các nguyên hàm của hàm số f(x) = 2x + 6 là?", "", "\\(x^2 + 6x + C\\).", "\\(2x^2 + C\\).", "\\(2x^2 + 6x + C\\).", "\\(x^2 + C.\\)", "A", " Vì nó đúng", false, "toan_01"))
+        var maDe = arguments?.getString(Const.MA_DE, "")
+        if (maDe != "") {
 
 
+            viewModel?.getQuestionsByMaDe(maDe!!)?.observe(viewLifecycleOwner, Observer {
+                if (it != null) {
+
+                    list = it
+
+                    stupidDummyFun()
+                }
+
+            })
+        }
+
+//        doAsync {
+//
+//            for (l in list) {
+//                MyDb.getInstance(context!!).questionDao().insertQuestion(l)
+//            }
+//
+//        }
+
+        var soCau = arguments?.getInt(Const.SO_CAU, -1)
         var listNumber: ArrayList<Int> = ArrayList()
 
-        for (i in 0 until list.size) {
-            listNumber.add(i + 1)
+        if (soCau != null && soCau != -1) {
+
+
+            for (i in 0 until soCau) {
+                listNumber.add(i + 1)
+            }
         }
 
 
-        var grid =
-            GridLayoutManager(activity, 3, GridLayoutManager.HORIZONTAL, false)
+        var grid = GridLayoutManager(activity, 3, GridLayoutManager.HORIZONTAL, false)
         rcv_number.setHasFixedSize(true)
         rcv_number.layoutManager = grid
         numberAdapter = NumberAdapter(listNumber, this)
         rcv_number.adapter = numberAdapter
 
 
+        var thoiGian = arguments?.getString(Const.THOI_GIAN,"")
+        if (thoiGian!!.isNotEmpty()) {
 
+
+            var simDate = SimpleDateFormat("mm:ss")
+
+            timer = object : Hourglass() {
+
+
+                override fun onTimerTick(timeRemaining: Long) {
+                    txt_time.text = simDate.format(timeRemaining)
+                }
+
+                override fun onTimerFinish() {
+                    txt_time.text = "Finish!"
+                    showDialogResult()
+                }
+
+
+            }
+
+            timer!!.setTime(thoiGian.toLong().times(60).times(1000))
+            timer!!.setInterval(1000)
+        }
+
+
+    }
+
+    private fun stupidDummyFun() {
         view_pager_question.adapter =
             PagerAdapter((context as MainActivity).supportFragmentManager, list, this)
         tab_question.setupWithViewPager(view_pager_question)
@@ -207,28 +250,6 @@ class ListQuestionFragment : BaseFragment(), IOnClickNumber, IOnSelectedAnswer {
             }
 
         }
-
-        var simDate = SimpleDateFormat("mm:ss")
-
-        timer = object : Hourglass() {
-
-
-            override fun onTimerTick(timeRemaining: Long) {
-                txt_time.text = simDate.format(timeRemaining)
-            }
-
-            override fun onTimerFinish() {
-                txt_time.text = "Finish!"
-                showDialogResult()
-            }
-
-
-        }
-
-        timer!!.setTime(60 * 30 * 1000)
-        timer!!.setInterval(1000)
-
-
     }
 
     override fun onPause() {

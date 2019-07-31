@@ -8,8 +8,7 @@ import android.arch.persistence.room.PrimaryKey
 /**
  *  Created by AMBE on 24/7/2019 at 11:47 AM.
  */
-@Entity(tableName = "exam")
-class Exam {
+@Entity(tableName = "exam") class Exam {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     var id: Int = 0

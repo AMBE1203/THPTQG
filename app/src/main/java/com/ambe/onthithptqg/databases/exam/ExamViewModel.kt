@@ -7,7 +7,9 @@ import android.arch.lifecycle.ViewModel
  */
 class ExamViewModel internal constructor(
     private val examRepository: ExamRepository
-) : ViewModel(){
+) : ViewModel() {
 
-    fun getExamBySub(sub :String) = examRepository.getExamBySub(sub)
+    fun getExamBySub(sub: String) = examRepository.getExamBySub(sub)
+
+    fun getExams() = examRepository.getExams()
 }

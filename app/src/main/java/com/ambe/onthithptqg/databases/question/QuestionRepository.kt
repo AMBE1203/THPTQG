@@ -5,7 +5,11 @@ package com.ambe.onthithptqg.databases.question
  */
 class QuestionRepository private constructor(private val questionDao: QuestionDao) {
 
-    fun getQuestionNoted(note: Boolean)  = questionDao.getQuestionNoted(note)
+    fun getQuestionNoted(note: Boolean) = questionDao.getQuestionNoted(note)
+
+    fun getQuestionsByMaDe(maDe: String) = questionDao.getQuestionsByMaDe(maDe)
+
+    fun getQuestion() = questionDao.getQuetsions()
 
     companion object {
 
@@ -13,10 +17,10 @@ class QuestionRepository private constructor(private val questionDao: QuestionDa
         private var instance: QuestionRepository? = null
 
         fun getInstance(questionDao: QuestionDao) = instance
-            ?: synchronized(this){
-            instance
-                ?: QuestionRepository(questionDao).also { instance = it }
-        }
+            ?: synchronized(this) {
+                instance
+                    ?: QuestionRepository(questionDao).also { instance = it }
+            }
 
 
     }

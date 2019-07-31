@@ -49,7 +49,7 @@ class ExamAdapter : ListAdapter<Exam, ExamAdapter.ViewHolder>(ExamDiffCallback()
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(exam: Exam) {
-            itemView.txt_name.text = exam.ten
+            itemView.txt_name.text = exam.tenDe
             itemView.txt_dia_chi.text = exam.diaChi
             itemView.txt_thoi_gian.text = "Thời gian: ${exam.thoiGian} - Số câu: ${exam.soCau}"
             val animation = AnimationUtils.loadAnimation(

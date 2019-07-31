@@ -9,6 +9,8 @@ class ExamRepository private constructor(private val examDao: ExamDao) {
 
     fun getExamBySub(sub: String) = examDao.getExamBySub(sub)
 
+    fun getExams() = examDao.getExams()
+
     companion object{
         @Volatile
         private var instance : ExamRepository? =null

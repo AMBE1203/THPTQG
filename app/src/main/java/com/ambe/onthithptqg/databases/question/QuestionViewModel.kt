@@ -12,4 +12,8 @@ class QuestionViewModel internal constructor(
 
     fun getQuestionNoted(note: Boolean) = questionRepository.getQuestionNoted(note)
 
+    fun getQuestion() = questionRepository.getQuestion()
+
+    fun getQuestionsByMaDe(maDe: String) = questionRepository.getQuestionsByMaDe(maDe)
+
 }
