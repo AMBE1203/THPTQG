@@ -29,6 +29,9 @@
     <string name="finish">Finish</string>
     <string name="giai_thich_dap_an">GIẢI THÍCH ĐÁP ÁN:</string>
     <string name="ket_qua">Kết quả</string>
+    <string name="de_thi">Đề thi</string>
+    <string name="ly_thuyet">Lý thuyết</string>
+    <string name="tai_lieu">Tài liệu</string>
 
 
     <array name="menuOptions">

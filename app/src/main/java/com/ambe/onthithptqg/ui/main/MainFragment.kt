@@ -10,6 +10,7 @@ import com.ambe.onthithptqg.R
 import com.ambe.onthithptqg.interfaces.IStateToolbarMain
 import com.ambe.onthithptqg.ui.BaseFragment
 import kotlinx.android.synthetic.main.fragment_main.*
+import org.jetbrains.anko.bundleOf
 
 
 class MainFragment : BaseFragment(), View.OnClickListener {

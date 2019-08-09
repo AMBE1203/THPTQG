@@ -205,7 +205,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Đề thi"
+                    android:text="@string/de_thi"
                     android:textColor="@color/colorBlack" />
 
             </LinearLayout>
@@ -232,7 +232,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Lý thuyết"
+                    android:text="@string/ly_thuyet"
                     android:textColor="@color/colorBlack" />
 
             </LinearLayout>
@@ -259,7 +259,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Tài liệu"
+                    android:text="@string/tai_lieu"
                     android:textColor="@color/colorBlack" />
 
             </LinearLayout>

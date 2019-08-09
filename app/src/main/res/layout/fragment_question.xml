@@ -10,9 +10,7 @@
         android:id="@+id/txt_cau_hoi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/_4sdp"
         app:layout_constraintBottom_toTopOf="@id/txt_hinh_anh"
-
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -53,6 +51,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#03D9FF" />
+
+
 
 
             <LinearLayout

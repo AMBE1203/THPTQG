@@ -14,6 +14,8 @@ import com.ambe.onthithptqg.helper.PrefUtils
 import com.ambe.onthithptqg.helper.Utils
 import com.ambe.onthithptqg.interfaces.IOnSimpleDialogListener
 import kotlinx.android.synthetic.main.dialog_alarm.*
+import java.util.*
+
 
 /**
  *  Created by AMBE on 23/7/2019 at 10:25 AM.
@@ -63,6 +65,12 @@ class AlarmDialog(context: Context) : BaseDialog(context), TimePicker.OnTimeChan
     }
 
     override fun getLayout(): Int {
+        Locale.setDefault(Locale.US)
+        val configuration = context.resources.configuration
+        configuration.setLocale(Locale.US)
+        configuration.setLayoutDirection(Locale.US)
+
+        context.createConfigurationContext(configuration)
         return R.layout.dialog_alarm
     }
 

@@ -67,6 +67,8 @@ class ListExamFragment : BaseFragment() {
         viewModel?.getExamBySub(subject!!)?.observe(viewLifecycleOwner, Observer {
             if (it != null) {
 
+                Log.e("AMBE1203", it.size.toString() + "   $subject")
+
                 adapter.submitList(it)
 
             }

@@ -1,13 +1,16 @@
 package com.ambe.onthithptqg.ui.subjects
 
+import android.arch.lifecycle.Observer
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 import com.ambe.onthithptqg.R
+import com.ambe.onthithptqg.databases.MyDb
 import com.ambe.onthithptqg.helper.Const
 import com.ambe.onthithptqg.interfaces.IStateToolbarMain
 import com.ambe.onthithptqg.ui.BaseFragment
@@ -48,7 +51,10 @@ class SubjectsFragment : BaseFragment() {
             stateToolbarMain?.showToolbar()
 
             navController.navigateUp()
+
+
         }
+
 
         lnl_de_thi.setOnClickListener {
             var bundle = Bundle()
