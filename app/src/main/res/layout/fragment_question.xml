@@ -9,6 +9,7 @@
     <katex.hourglass.in.mathlib.MathView
         android:id="@+id/txt_cau_hoi"
         android:layout_width="match_parent"
+        android:layout_margin="@dimen/_8sdp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@id/txt_hinh_anh"
         app:layout_constraintLeft_toLeftOf="parent"
