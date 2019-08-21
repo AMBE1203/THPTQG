@@ -1,59 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.question.QuestionFragment">
+    android:layout_height="match_parent">
 
-    <katex.hourglass.in.mathlib.MathView
-        android:id="@+id/txt_cau_hoi"
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_margin="@dimen/_8sdp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/txt_hinh_anh"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        tools:context=".ui.question.QuestionFragment">
 
-    <ImageView
-        android:id="@+id/txt_hinh_anh"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher_background"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@id/scroll_dap_an"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_cau_hoi" />
+        <katex.hourglass.in.mathlib.MathView
+            android:id="@+id/txt_cau_hoi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            app:layout_constraintBottom_toTopOf="@id/txt_hinh_anh"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/txt_hinh_anh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/lnl_dap_an"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txt_cau_hoi" />
 
-
-    <ScrollView
-        android:id="@+id/scroll_dap_an"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_hinh_anh">
 
         <LinearLayout
             android:id="@+id/lnl_dap_an"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_4sdp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
 
-
-            android:orientation="vertical">
+            app:layout_constraintTop_toBottomOf="@id/txt_hinh_anh">
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#03D9FF" />
-
-
 
 
             <LinearLayout
@@ -221,7 +218,6 @@
 
         </LinearLayout>
 
-    </ScrollView>
 
-
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
